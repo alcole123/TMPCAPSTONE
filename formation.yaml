@@ -2,14 +2,16 @@ Resources:
   TMPInfrastructure:
     Type: AWS::EC2::Instance
     Properties:
+      KeyName: TMP
       InstanceType: t2.medium
-      ImageId: ami-01c7c5bf31cabfb04
+      ImageId: ami-0e081ed4ce61c1fb2
       SecurityGroupIds: 
         - sg-0066d8ba727090413
   
   TMPStaging:
     Type: AWS::EC2::Instance
     Properties: 
+      KeyName: TMP
       InstanceType: t2.micro
       ImageId: ami-0e081ed4ce61c1fb2
       SecurityGroupIds: 
@@ -18,6 +20,7 @@ Resources:
   TMPProducaution:
     Type: AWS::EC2::Instance
     Properties:
+      KeyName: TMP
       InstanceType: t2.micro
       ImageId: ami-0e081ed4ce61c1fb2
       SecurityGroupIds: 
