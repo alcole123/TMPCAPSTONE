@@ -4,7 +4,7 @@ Resources:
     Properties:
       KeyName: TMP
       InstanceType: t2.medium
-      ImageId: ami-0e081ed4ce61c1fb2
+      ImageId: ami-0729e439b6769d6ab
       SecurityGroupIds: 
         - sg-0066d8ba727090413
   
