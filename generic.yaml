@@ -3,16 +3,20 @@
     hosts: docker 
     become: yes
     become_user: root
-
+    vars: 
+      remote_install: /home/ubuntu
+        
     tasks:
       - name: Install aptitude
         apt:
           name: aptitude
           state: latest
           update_cache: true
+          force_apt_get: yes
       - name:  Install required system packages
         apt:
           pkg:
+            - python3
             - apt-transport-https
             - ca-certificates
             - curl
@@ -21,21 +25,27 @@
             - virtualenv
             - python3-setuptools
           state: present
-          update_cache: true
+          update_cache: yes
 
       - name: Add Docker GPG apt Key
         apt_key:
           url: https://download.docker.com/linux/ubuntu/gpg
           state: present
-
       - name: Add Docker Repository
-        apt_repository: 
-          repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu/bionic {{ ansible_lsb.codename }} edge
-          state: present 
+        apt_repository:
+          repo: deb https://download.docker.com/linux/ubuntu bionic stable
+          state: present
+      
+      - name: install docker
+        apt:
+          name: docker.io
+          state: latest
+          update_cache: yes
 
-      - name: Update apt and install docker-ce
-        apt: update_cache=yes name=docker-ce state=latest
-          
-      - name: Install Docker Module for Python
-        pip:
-          name: docker
+      - name: instll docker compose
+        get_url:
+          url: https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64
+          dest: /usr/local/bin/docker-compose
+          mode: u+x,g+x,o+x
+
+        
