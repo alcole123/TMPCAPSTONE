@@ -1,0 +1,46 @@
+---
+- name: Bamboo install
+  hosts: BAM
+  become: yes
+  become_user: root
+
+
+  tasks:
+
+  # - name: update pip3
+  #   apt:
+  #     update_cache: yes
+  #     state: latest
+  #     force: yes
+  #     name: python-pip
+
+  - name:
+    command:
+      cmd: pip3 install docker
+  
+  
+
+  - name: start Docker
+    service:
+      name: docker
+      state: started
+
+
+
+  - name: Pull default Docker image
+    docker_image:
+      name: hello-world
+      source: pull
+      state: present
+
+
+
+
+# - name: adding containers
+#   docker_container:
+#     name: Bamboo
+#     image:  
+#     command:
+#     state:
+#     with_sequence:
+
