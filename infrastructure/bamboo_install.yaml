@@ -3,44 +3,48 @@
   hosts: BAM
   become: yes
   become_user: root
+  # vars:
+  #   - expose_8085=8085
+  #   - expose_54=54663
 
 
   tasks:
-
-  # - name: update pip3
-  #   apt:
-  #     update_cache: yes
-  #     state: latest
-  #     force: yes
-  #     name: python-pip
 
   - name:
     command:
       cmd: pip3 install docker
   
-  
-
+      
   - name: start Docker
     service:
       name: docker
       state: started
 
-
+  - name: create docker volume
+    command:
+      cmd: docker volume create --name bamboovolume
 
   - name: Pull default Docker image
     docker_image:
-      name: hello-world
+      name: jrrickerson/capstone-bamboo
       source: pull
       state: present
+  
+  - name: change mode for docker.sock
+    command:
+      cmd: sudo chmod 666 /var/run/docker.sock
 
+  - name: create a container
+    docker_container:
+      name: bamboo
+      image: jrrickerson/capstone-bamboo
+      state: started
+      # later add duplicated
+      exposed_ports:
+        - 8085
+        - 54663
 
-
-
-# - name: adding containers
-#   docker_container:
-#     name: Bamboo
-#     image:  
-#     command:
-#     state:
-#     with_sequence:
-
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - bamboovolume:/var/atlassian/application-data/bamboo
+        
