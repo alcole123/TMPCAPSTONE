@@ -42,7 +42,11 @@
       # later add duplicated
       exposed_ports:
         - 8085
-        - 54663
+        - 54663 
+      ports:
+       - 8085:8085
+       - 54663:54663
+      
 
       volumes:
         - /var/run/docker.sock:/var/run/docker.sock
