@@ -6,21 +6,24 @@ services:
       - db_data:/var/lib/mysql
     restart: always
     environment:
-      - ${bamboo.MYSQL_ROOT_PASSWORD}
-      - ${bamboo.MYSQL_DATABASE}
-      - ${bamboo.MYSQL_USER}
-      - ${bamboo.MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD:${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE:${MYSQL_DATABASE}
+      - MYSQL_USER:${MYSQL_USER}
+      - MYSQL_PASSWORD:${MYSQL_PASSWORD}
     expose:
       - 3306
       - 33060
   wordpress:
     image: wordpress:latest
-    ports:
+    expose:
       - 8088
+    ports:
+      - 80:80
     restart: always
     environment:
-      - ${bamboo.WORDPRESS_DB_HOST}
-      - ${bamboo.WORDPRESS_DB_USER}
-      - ${bamboo.WORDPRESS_DB_NAME}
-      - ${bamboo.WORDPRESS_DB_PASSWORD}
+      - WORDPRESS_DB_HOST:${WORDPRESS_DB_HOST}
+      - WORDPRESS_DB_USER:${WORDPRESS_DB_USER}
+      - WORDPRESS_DB_PASSWORD:${WORDPRESS_DB_PASSWORD}
+      - WORDPRESS_DB_NAME:${WORDPRESS_DB_NAME}
 volumes:
+  - wordpress:/var/www/html
