@@ -1,0 +1,26 @@
+services:
+  db:
+    image: mysql:8.0.27
+    command: '--default-authentication-plugin=mysql_native_password'
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      - ${bamboo.MYSQL_ROOT_PASSWORD}
+      - ${bamboo.MYSQL_DATABASE}
+      - ${bamboo.MYSQL_USER}
+      - ${bamboo.MYSQL_PASSWORD}
+    expose:
+      - 3306
+      - 33060
+  wordpress:
+    image: wordpress:latest
+    ports:
+      - 8088
+    restart: always
+    environment:
+      - ${bamboo.WORDPRESS_DB_HOST}
+      - ${bamboo.WORDPRESS_DB_USER}
+      - ${bamboo.WORDPRESS_DB_NAME}
+      - ${bamboo.WORDPRESS_DB_PASSWORD}
+volumes:
