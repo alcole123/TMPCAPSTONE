@@ -3,11 +3,8 @@
     hosts: docker 
     become: yes
     become_user: root
-    vars: 
-      remote_install: /home/ubuntu
         
-  tasks:
-
+    tasks:
     - name: Install aptitude
       apt:
         name: aptitude 
@@ -18,14 +15,14 @@
     - name:  Install required system packages
       apt:
         pkg:
-          - python3
-          - apt-transport-https
-          - ca-certificates
-          - curl
-          - software-properties-common
-          - python3-pip
-          - virtualenv
-          - python3-setuptools
+        - python3
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - software-properties-common
+        - python3-pip
+        - virtualenv
+        - python3-setuptools
         state: present
         update_cache: yes
 
@@ -69,7 +66,7 @@
         state: present
         
     - name: Add remote "ubuntu" user to "docker" group
-        user:
+      user:
         name: ubuntu
         groups: docker
         append: yes
