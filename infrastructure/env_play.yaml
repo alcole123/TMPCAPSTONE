@@ -1,0 +1,19 @@
+---
+- name: migrate env to infra device
+  hosts: BAM
+ 
+
+  tasks:
+    - name: create wordpess folder
+      file:
+        path: wordpress_proj
+        state: directory
+        mode: '0755'
+
+      
+    - name: copy .env file to remote host
+      copy:
+        force: yes
+        follow: yes
+        src: .env
+        dest: /home/ubuntu/wordpress_proj
