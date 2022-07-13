@@ -47,6 +47,10 @@
     - name: Install Docker Module for Python
       pip:
         name: docker
+
+    - name: python pip3 install
+      command:
+        cmd: pip3 install docker
   
     
     - name: install docker compose
