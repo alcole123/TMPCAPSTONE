@@ -35,6 +35,7 @@
       name: bamboo
       image: jrrickerson/capstone-bamboo
       state: started
+      restart: always
       # later add duplicated
       exposed_ports:
         - 8085
