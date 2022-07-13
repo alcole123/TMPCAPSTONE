@@ -1,12 +1,12 @@
 ---
 - name: migrate env to infra device
-  hosts: BAM
+  hosts: Stage
  
 
   tasks:
     - name: create wordpess folder
       file:
-        path: wordpress_proj
+        path: wordpress_proj_stage
         state: directory
         mode: '0755'
 
@@ -16,4 +16,4 @@
         force: yes
         follow: yes
         src: .env
-        dest: /home/ubuntu/wordpress_proj
+        dest: /home/ubuntu/wordpress_proj_stage

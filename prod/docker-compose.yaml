@@ -10,11 +10,11 @@ services:
     env_file:
       - .env
     ports:
-      -  3306:3306 
+      - 3306
+      - 33060
 
   wordpress:
     image: wordpress:latest
-
     ports:
       - 8088:80
     depends_on:
