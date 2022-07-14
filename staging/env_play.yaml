@@ -8,12 +8,19 @@
       file:
         path: wordpress_proj_stage
         state: directory
-        mode: '0755'
-
-      
-    - name: copy .env file to remote host
+        mode: '0755'  
+    
+    
+    - name: copy docker-compose to dir
       copy:
         force: yes
         follow: yes
-        src: .env
+        src: docker-compose.yaml
         dest: /home/ubuntu/wordpress_proj_stage
+
+    - name:
+      file:
+        path: /wordpress_proj_stage/.env
+        state: file
+    
+    
