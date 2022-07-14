@@ -1,0 +1,5 @@
+FROM python:3.8-alpine
+copy . /app
+Run pip3 install -r /app/requirements.txt
+Expose 8080
+cmd python3 /app/pyblog.py
