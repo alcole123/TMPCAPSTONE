@@ -2,16 +2,24 @@ version: '3'
 services:
   db:
     container_name: db
-    image: mariadb:10.6.4-focal
-    command: '--default-authentication-plugin=mysql_native_password'
+    image: mysql:5.7
     restart: always
     env_file:
       - .env
     ports:
       - 3306
-      - 33060
     volumes:
         - ./data:/var/lib/mysql
+        
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      -'8080:80'
+    env_file:
+      - .env
 
   wordpress:
     image: wordpress:latest
