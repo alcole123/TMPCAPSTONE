@@ -22,9 +22,3 @@
       file:
         path: /home/ubuntu/wordpress_proj_stage/.env
         state: touch
-
-   
-
-
-    
-    

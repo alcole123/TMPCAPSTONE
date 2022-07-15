@@ -7,6 +7,9 @@ Resources:
       ImageId: ami-0729e439b6769d6ab
       SecurityGroupIds: 
         - sg-0066d8ba727090413
+      Tags: 
+        - Key: "Name"
+          Value: "TMPINFRA"
   
   TMPStaging:
     Type: AWS::EC2::Instance
@@ -16,6 +19,9 @@ Resources:
       ImageId: ami-0e081ed4ce61c1fb2
       SecurityGroupIds: 
         - sg-043f60b59d71512f0
+      Tags: 
+        - Key: "Name"
+          Value: "TMPSTAG"
 
   TMPProducaution:
     Type: AWS::EC2::Instance
@@ -25,6 +31,9 @@ Resources:
       ImageId: ami-0e081ed4ce61c1fb2
       SecurityGroupIds: 
         -  sg-043f60b59d71512f0
+      Tags: 
+        - Key: "Name"
+          Value: "TMPPROD"
 
   
 
