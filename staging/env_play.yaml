@@ -25,15 +25,15 @@
 
     - name:
       shell: 
-      echo $'
-      MYSQL_ROOT_PASSWORD=somewordpress
-      MYSQL_DATABASE=wordpress_stag
-      MYSQL_USER=wordpress
-      MYSQL_PASSWORD=wordpress
-      WORDPRESS_DB_HOST=db
-      WORDPRESS_DB_USER=wordpress
-      WORDPRESS_DB_PASSWORD=wordpress
-      WORDPRESS_DB_NAME=wordpress' > /home/ubuntu/wordpress_proj_stage/.env
+        echo $'
+        MYSQL_ROOT_PASSWORD=somewordpress
+        MYSQL_DATABASE=wordpress_stag
+        MYSQL_USER=wordpress
+        MYSQL_PASSWORD=wordpress
+        WORDPRESS_DB_HOST=db
+        WORDPRESS_DB_USER=wordpress
+        WORDPRESS_DB_PASSWORD=wordpress
+        WORDPRESS_DB_NAME=wordpress' > /home/ubuntu/wordpress_proj_stage/.env
 
 
     
