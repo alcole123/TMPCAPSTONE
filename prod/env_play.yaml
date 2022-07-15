@@ -11,9 +11,14 @@
         mode: '0755'
 
       
-    - name: copy .env file to remote host
+    - name: copy docker-compose to dir
       copy:
         force: yes
         follow: yes
-        src: .env
+        src: docker-compose.yaml
         dest: /home/ubuntu/wordpress_proj_PROD
+    
+    - name:
+      file:
+        path: /home/ubuntu/wordpress_proj_PROD/.env
+        state: touch
