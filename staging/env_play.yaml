@@ -1,5 +1,6 @@
 ---
-- name: creating DIR for Stage
+
+- name: creating DIR for env
   hosts: Stage
   become: yes
   become_root: yes
