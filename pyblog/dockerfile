@@ -1,4 +1,4 @@
 FROM python:3.8-alpine
 copy . /app
 Run pip3 install -r /app/requirements.txt
-cmd python3 /app/pyblog.py
+# cmd python3 /app/pyblog.py check *enterpoint*
