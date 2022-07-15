@@ -2,8 +2,6 @@
 
 - name: creating DIR for env
   hosts: Stage
-  become: yes
-  become_root: yes
 
   tasks:
     - name: create wordpess folder
