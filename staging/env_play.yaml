@@ -23,17 +23,7 @@
         path: /home/ubuntu/wordpress_proj_stage/.env
         state: touch
 
-    - name:
-      shell: 
-        echo'
-        MYSQL_ROOT_PASSWORD=somewordpress\n
-        MYSQL_DATABASE=wordpress_stag\n
-        MYSQL_USER=wordpress\n
-        MYSQL_PASSWORD=wordpress\n
-        WORDPRESS_DB_HOST=db\n
-        WORDPRESS_DB_USER=wordpress\n
-        WORDPRESS_DB_PASSWORD=wordpress\n
-        WORDPRESS_DB_NAME=wordpress' > /home/ubuntu/wordpress_proj_stage/.env
+   
 
 
     
