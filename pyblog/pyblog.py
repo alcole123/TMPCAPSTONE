@@ -16,9 +16,9 @@ from requests.auth import HTTPBasicAuth
 
 #Hard coded values
 #Remove these when env variables are set above
-wp_user = "tmpstag"
-wp_pass = "wjI1 EQFx MOsT H8wH uVkc IeJY"
-wp_url = "http://54.90.224.76:8088/wp-json/wp/v2/posts"
+wp_user = "TMPPROD"
+wp_pass = "qNHJ FYVs NL9g Vakc AN14 na6Z"
+wp_url = "http://54.164.17.201:8088/wp-json/wp/v2/posts"
 
 #Get current date and time for new posts
 current_date = datetime.now()
