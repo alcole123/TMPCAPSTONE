@@ -7,9 +7,16 @@ import argparse
 import re
 from datetime import datetime
 from requests.auth import HTTPBasicAuth
-wp_user = os.environ['wp_admin']
-wp_pass = os.environ['wp_pass']
-wp_url = os.environ['wp_url']
+# wp_user = os.environ['wp_admin']
+# wp_pass = os.environ['wp_pass']
+# wp_url = os.environ['wp_url']
+#Hard coded values
+#Remove these when env variables are set above
+wp_user = "TMPPROD"
+wp_pass = "qNHJ FYVs NL9g Vakc AN14 na6Z"
+wp_url = "http://54.164.17.201:8088/wp-json/wp/v2/posts"
+# Get current date and time for new posts
+
 current_date = datetime.now()
 blog_post_date = current_date.strftime('%Y-%m-%dT%H:%M:%M')
 basic = HTTPBasicAuth(wp_user, wp_pass)
@@ -17,12 +24,12 @@ headers = {
   'Accept': 'application/json',
   }
 my_parser = argparse.ArgumentParser(prog='pyblog', 
-                                    description='Program used to read and make blog posts')
+description='Program used to read and make blog posts')
 my_parser.add_argument('command', type=str)
 my_parser.add_argument('-f', '--file', 
-                        help="Name of the file to create blog post from")
+help="Name of the file to create blog post from")
 my_parser.add_argument('text_input', nargs='?', 
-                        type=str, default="-", help="Name of the file to create blog post from")
+type=str, default="-", help="Name of the file to create blog post from")
 args = my_parser.parse_args()
 def post():
     title = "Need to define how to get this from stdin"
@@ -33,8 +40,7 @@ def post():
     'title': title,
     'excerpt': excerpt,
     'date': blog_post_date,
-    'status': 'publish'
-    }
+    'status': 'publish'}
     response = requests.request(rest_method, url, auth=basic, headers=headers, data=payload)
     pyblog_request_data = response.json()
     print(json.dumps(pyblog_request_data, indent=4, sort_keys=True))
@@ -55,8 +61,7 @@ def upload():
     'title': title,
     'excerpt': excerpt,
     'date': blog_post_date,
-    'status': 'publish',
-    }
+    'status': 'publish'}
     response = requests.request(rest_method, url, auth=basic, headers=headers, data=payload)
     pyblog_request_data = response.json()
     pyblog_request_data = response.json()
