@@ -1,5 +1,8 @@
 FROM python:3.8-alpine
 copy . /app
 Run pip3 install -r /app/requirements.txt
+ENV wp_user
+ENV wp_pass
+ENV wp_url
 ENTRYPOINT ["python3", "pyblog.py"]
 # cmd python3 /app/pyblog.py check *enterpoint*
