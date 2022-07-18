@@ -1,0 +1,27 @@
+---
+  - name: Bamboo install
+    hosts: BAM
+    become: yes
+    become_user: root
+
+    tasks:
+      - name: create wordpess folder
+        file:
+          path: Splunk
+          state: directory
+          mode: '0755'
+  
+        
+      - name: copy docker-compose to dir
+        copy:
+          force: yes
+          follow: yes
+          src: docker-compose.yaml
+          dest: /home/ubuntu/Splunk
+      
+      - name:
+        file:
+          path: /home/ubuntu/Splunk/.env
+          state: touch
+
+  

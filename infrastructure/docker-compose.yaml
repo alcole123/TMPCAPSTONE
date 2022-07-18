@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  splunk:
+    container_name: splunk
+    image: splunk/splunk:latest
+    volumes:
+      - ./splunk:/var/splunk
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+      - "8088:8088"
+      - "9997:9997"

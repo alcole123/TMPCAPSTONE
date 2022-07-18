@@ -33,4 +33,13 @@ services:
       - .env
     volumes:
       - ./html:/var/www/html
+    # logging:
+    #   driver: splunk
+    #   options:
+    #     splunk-format: 'raw'
+    #     # splunk-token:
+    #     splunk-url: http://54.164.17.201:8088/
+    #     splunk-insecureskipverify: 'true'
+        
+        
     
