@@ -1,6 +1,6 @@
 ---
   - name: Splunk config
-    hosts: BAM
+    hosts: SP
     become: yes
     become_user: root
 
