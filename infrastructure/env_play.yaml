@@ -7,7 +7,7 @@
     tasks:
       - name: create wordpess folder
         file:
-          path: Splunk
+          path: monitor_s
           state: directory
           mode: '0755'
   
@@ -17,11 +17,11 @@
           force: yes
           follow: yes
           src: docker-compose.yaml
-          dest: /home/ubuntu/Splunk
+          dest: /home/ubuntu/monitor_s
       
       - name:
         file:
-          path: /home/ubuntu/Splunk/.env
+          path: /home/ubuntu/monitor_s/.env
           state: touch
 
   
