@@ -23,5 +23,11 @@
         file:
           path: /home/ubuntu/monitor_s/.env
           state: touch
+      
+      - name: edit permissions
+        file:
+          path: /home/ubuntu/monitor_s/.env
+          state: file
+          mode: '0755'
 
   
