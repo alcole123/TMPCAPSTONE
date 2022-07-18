@@ -1,6 +1,6 @@
 ---
-  - name: Bamboo install
-    hosts: SP
+  - name: Splunk config
+    hosts: BAM
     become: yes
     become_user: root
 
