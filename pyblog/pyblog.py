@@ -7,14 +7,14 @@ import argparse
 import re
 from datetime import datetime
 from requests.auth import HTTPBasicAuth
-# wp_user = os.environ['wp_admin']
-# wp_pass = os.environ['wp_pass']
-# wp_url = os.environ['wp_url']
+wp_user = os.environ['wp_admin']
+wp_pass = os.environ['wp_pass']
+wp_url = os.environ['wp_url']
 #Hard coded values
-#Remove these when env variables are set above
-wp_user = "TMPPROD"
-wp_pass = "qNHJ FYVs NL9g Vakc AN14 na6Z"
-wp_url = "http://54.164.17.201:8088/wp-json/wp/v2/posts"
+# #Remove these when env variables are set above
+# wp_user = "TMPPROD"
+# wp_pass = "qNHJ FYVs NL9g Vakc AN14 na6Z"
+# wp_url = "http://54.164.17.201:8088/wp-json/wp/v2/posts"
 # Get current date and time for new posts
 
 current_date = datetime.now()
