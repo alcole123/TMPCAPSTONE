@@ -36,8 +36,8 @@ services:
     logging:
       driver: splunk
       options:
-        splunk-format: "raw"
-        splunk-token: fe95216f-9897-422f-9eca-21827f2fa0d9
+        splunk-format: raw
+        splunk-token: 01c64dce-32fa-443e-a8b4-1726c473c347
         splunk-url: https://3.90.105.35:8087/ 
         splunk-insecureskipverify: "true"
         labels: "WordPress"
