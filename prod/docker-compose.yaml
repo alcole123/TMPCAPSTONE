@@ -33,13 +33,13 @@ services:
       - .env
     volumes:
       - ./html:/var/www/html
-    # logging:
-    #   driver: splunk
-    #   options:
-    #     splunk-format: "raw"
-    #     # splunk-token:
-    #     splunk-url: http://54.164.17.201:8088/ infra machine 
-    #     splunk-insecureskipverify: "true"
+    logging:
+      driver: splunk
+      options:
+        splunk-format: "raw"
+        splunk-token: fe95216f-9897-422f-9eca-21827f2fa0d9
+        splunk-url: http://3.90.105.35:8000/ infra machine 
+        splunk-insecureskipverify: "true"
         
         
     
