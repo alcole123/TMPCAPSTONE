@@ -38,7 +38,7 @@ services:
       options:
         splunk-format: "raw"
         splunk-token: fe95216f-9897-422f-9eca-21827f2fa0d9
-        splunk-url: https://3.90.105.35:8088/ 
+        splunk-url: https://3.90.105.35:8087/ 
         splunk-insecureskipverify: "true"
         labels: "WordPress"
         
