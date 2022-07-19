@@ -9,9 +9,9 @@ from requests.auth import HTTPBasicAuth
 
 # Read In Env Variables
 
-wp_user = os.environ['wp_admin']
-wp_pass = os.environ['wp_pass']
-wp_url = os.environ['wp_url']
+wp_user = os.environ.get('wp_admin')
+wp_pass = os.environ.get('wp_pass')
+wp_url = os.environ.get('wp_url')
 
 # Get current date and time for new posts
 current_date = datetime.now()
